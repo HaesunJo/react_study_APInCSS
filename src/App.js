@@ -1,12 +1,10 @@
-import React, { Suspense, lazy, useContext } from 'react'
+import React, { Suspense} from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import Home from './pages/Home'
-// import { ProductContext } from './components/context/context'
 
 import './App.css'
 
-// const Navbar = lazy(() => import('./components/Navbar'))
 
 const App = () => {
 

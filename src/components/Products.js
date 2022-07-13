@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { IconContext } from 'react-icons'
-
-import * as BSIcons from 'react-icons/bs'
 
 import StarRating from './Rating'
 
@@ -80,76 +77,29 @@ const Price = styled.p`
 	// text-decoration-line: line-through;
 `
 
-const Rating = styled.span`
-	margin-top: 10px;
-	display   : inline-block;
-	color     : #FFD12D;
-	font-size : .8rem;
-	float     : right;
-`
-
 function Products(id) {
-
-	// const product = props.product
-
+	
 	const URL = `https://dummyjson.com/products`
 
 	const [product, setProducts] = useState([])
 	const [loading, setLoading] = useState(true);
 
-	const getProducts = async () => {
-		const list = await fetch(URL, {headers: { 'Content-Type': 'text/plain' }})
-
-		// const list = await axios.get(URL, {headers: { 'Content-Type': 'text/plain' }})
-		const json = await list.json()
-
-		// console.log(json)
-		setProducts(json.products)
-
-	}
-
 	useEffect(() => {
+		const getProducts = async () => {
+			const list = await fetch(URL, {headers: { 'Content-Type': 'text/plain', method: 'GET' }})
+	
+			// const list = await axios.get(URL, {headers: { 'Content-Type': 'text/plain' }})
+			const json = await list.json()
+	
+			// console.log(json)
+			setProducts(json.products)
+	
+		}
 		getProducts()
 		setLoading(false)
-	}, [])
+	}, [URL])
 
-
-	// console.log(product)
-	// async function getProducts() {
-	// 	await axios('https://dummyjson.com/products')
-	// 	.then((response) => {
-	// 		setProducts(response.products)
-	// 	})
-	// 	.catch((error) => {
-	// 		console.log('error fetching product data:', error)
-	// 	})
-	// 	.finally(() => {
-	// 		setLoading(false)
-	// 	})
-	// }
-
-	// const fetchProducts = async () => {
-	// 	try {
-	// 		setError(null)
-	// 		setProducts(null)
-
-	// 		setLoading(true)
-
-	// 		const response = await axios.get('https://dummyjson.com/products')
-	// 		setProducts(response.data.products)
-	// 		console.log(response)
-	// 	} catch(e) {
-	// 		setError('error in products fetching', e)
-	// 	}
-	// 	setLoading(false)
-	// }
-
-	// useEffect(() => {
-	// 	fetchProducts()
-	// },[])
-
-	// if (product.length < 0) return "Trying to get products"
-	// if (loading) return "Loading products..."
+	if (loading) return "<br/>Product loading..."
 
 	return (
 		
@@ -174,9 +124,7 @@ function Products(id) {
 									<Title>{ id.title }</Title>
 									<Desc>{ id.description }</Desc>
 									<Price>$ { id.price }</Price>
-									{/* <StarRating name={id.rating} /> */}
 									<StarRating rating={id.rating} />
-									{/* <Rating>{toStars(id.rating)}</Rating> */}
 								</ProductContainer>
 							</Box>
 						</BoxContainer>
