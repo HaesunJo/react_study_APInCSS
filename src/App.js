@@ -8,9 +8,7 @@ import './App.css'
 
 // const Navbar = lazy(() => import('./components/Navbar'))
 
-
 const App = () => {
-
 
 	return (
 		<>
