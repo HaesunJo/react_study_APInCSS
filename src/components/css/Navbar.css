@@ -1,0 +1,90 @@
+.navbar {
+	height          : 115px;
+	background-color: #fff;
+	display         : flex;
+	justify-content : flex-start;
+	align-items     : center;
+	border-bottom   : 2px solid #DEDEDE;
+}
+
+.btn_open {
+	margin-left: 2rem;
+	font-size  : 2rem;
+	background : none;
+}
+
+.btn_close {
+	padding-left: 150px;
+	font-size   : 2rem;
+	background  : none;
+}
+.nav__menu {
+	position        : fixed;
+	width           : 250px;
+	height          : 100vh;
+	display         : flex;
+	justify-content : center;
+	position        : fixed;
+	top             : 0;
+	left            : -100%;
+	transition      : .85s;
+	background-color: #fff;
+	opacity         : 0;
+}
+
+
+.nav__menu.active {
+	left      : 0;
+	transition: .35s;
+	/* background-color: 5px  rgba(0, 0, 0, 0.2); */
+	opacity: 1;
+}
+
+li {
+	padding   : 10px;
+	display   : flex;
+	list-style: none;
+}
+
+li a {
+	display        : flex;
+	align-items    : center;
+	text-decoration: none;
+	font-size      : 1.1rem;
+}
+
+li a:hover {
+	color: #FF6914;
+}
+
+li a::after {
+	color: #FF6914;
+}
+
+.nav__menu_items { 
+	padding-left: 2.5rem;
+	width       : 100%;
+}
+
+.nav_toggle {
+	width          : 100%;
+	height         : 80px;
+	display        : flex;
+	justify-content: flex-start;
+	align-items    : center;
+}
+
+.overlay {
+	position        : fixed;
+	top             : 0;
+	left            : 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	opacity         : 0;
+}
+
+.overlay.true {
+	right     : 0;
+	bottom    : 0;
+	opacity   : 1;
+	transition: opacity 0.4s;
+}

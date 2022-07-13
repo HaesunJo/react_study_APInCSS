@@ -1,0 +1,16 @@
+
+.stars[data-name="1"]::before {
+	content:'★'
+}
+.stars[data-name="2"]::before {
+	content:'★★'
+}
+.stars[data-name="3"]::before {
+	content:'★★★'
+}
+.stars[data-name="4"]::before {
+	content:'★★★★'
+}
+.stars[data-name="5"]::before {
+	content:'★★★★★'
+}
